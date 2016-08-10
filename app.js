@@ -120,7 +120,7 @@ function chooseOutfit(temperature, weather) {
 }
 
 function writeMessage(outfit, weather, city) {
-    if (weather == "Rain") {
+    if (isWeatherRainCondition(weather)) {
         return "It's rainy today in " + city + ". Try not to get too wet, like Ryan here."
     } else if (outfit == "shirtless") {
         return "It sure is hot out today in " + city + ", if you know what I mean."

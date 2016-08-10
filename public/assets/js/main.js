@@ -1,15 +1,36 @@
-$(document).ready(function () {
-    $('#test').click(test);
-});
+function AppViewModel() {
+    var self = this;
+    this.message = ko.observable("");
+    this.imgSrc = ko.observable("");
+    this.temperature = ko.observable(0);
+    this.weatherIcon = ko.observable("");
 
-function test() {
-    navigator.geolocation.getCurrentPosition(function (position) {
-        sendTestRequest(position.coords.latitude, position.coords.longitude);
+    navigator.geolocation.getCurrentPosition(function(position) {
+        $.post('/weather', {
+            lat: position.coords.latitude,
+            lon: position.coords.longitude
+        }, function(data) {
+            console.log(data);
+            self.message(data.message);
+            self.imgSrc(data.imgUrl);
+            self.temperature(Math.round(data.temperature));
+            self.weatherIcon(getWeatherImageName(data.weatherDescription));
+        });
     });
-}
+};
 
-function sendTestRequest(lat, lon) {
-    $.post('/weather', {lat: lat, lon: lon}, function(data){
-        console.log(data);
-    });
-}
+ko.applyBindings(new AppViewModel());
+
+function getWeatherImageName(weather) {
+    if (weather == "Clear") {
+        var hour = new Date().getHours;
+
+        if (hour >= 7 && hour <= 20) {
+            return "/assets/img/Clear_AM.svg";
+        } else {
+            return "/assets/img/Clear_PM.svg";
+        }
+    } else {
+        return "/assets/img/" + weather + ".svg";
+    }
+};
