@@ -9,6 +9,8 @@
     <title>What Would Ryan Gosling Wear Today</title>
     <link rel="shortcut icon" href="">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css">
 
     <!--[if IE]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -17,16 +19,29 @@
 </head>
 
 <body>
-    <div class="container">
+    <div data-bind="visible: !dataLoaded" class="container">
         <div class="row">
-            <h1><span data-bind="text: temperature"></span><sup>°F</sup></h1>
-            <img data-bind="attr: { src: weatherIcon }">
+            <img class="center-block" src="assets/img/balls.gif">
+        </div>
+    </div>
+
+    <div data-bind="visible: dataLoaded" class="container">
+        <div class="row">
+            <div class="col-xs-2 col-xs-offset-3">
+                <h1 id="temperature"><span data-bind="text: temperature"></span><sup>°</sup></h1>
+            </div>
+            <div class="col-xs-2 col-xs-offset-2">
+                <img class="center-block" id="weather-icon" data-bind="attr: { src: weatherIcon }">
+            </div>
         </div>
         <div class="row">
-            <img data-bind="attr: { src: imgSrc }">
+            <div class="col-xs-12">
+                <img id="ryan-photo" class="img-circle center-block" data-bind="attr: { src: imgSrc }">
+            </div>
+
         </div>
         <div class="row">
-            <p data-bind="text: message"></p>
+            <h1 id="description" class="text-center" data-bind="text: message"></h1>
         </div>
     </div>
 

@@ -4,6 +4,7 @@ function AppViewModel() {
     this.imgSrc = ko.observable("");
     this.temperature = ko.observable(0);
     this.weatherIcon = ko.observable("");
+    this.dataLoaded = ko.observable(false);
 
     navigator.geolocation.getCurrentPosition(function(position) {
         $.post('/weather', {
@@ -15,6 +16,7 @@ function AppViewModel() {
             self.imgSrc(data.imgUrl);
             self.temperature(Math.round(data.temperature));
             self.weatherIcon(getWeatherImageName(data.weatherDescription));
+            self.dataLoaded(true);
         });
     });
 };
