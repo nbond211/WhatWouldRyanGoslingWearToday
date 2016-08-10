@@ -1,0 +1,27 @@
+{
+        "cold": [
+            "pea coat"
+        ], 
+        "chilly": [
+            "flannel shirt", 
+            "sweater", 
+            "cardigan", 
+            "denim jacket", 
+            "suit"
+        ], 
+        "comfortable": [
+            "denim jacket", 
+            "button down",
+            "jeans", 
+            "henley", 
+            "blazer", 
+            "short sleeve button down"
+        ], 
+        "hot": [
+            "blue shorts", 
+            "white t-shirt",
+            "shirtless", 
+            "tanktop", 
+            "v-neck"
+        ]
+}
