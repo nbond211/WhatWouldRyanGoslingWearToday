@@ -25,8 +25,7 @@ ko.applyBindings(new AppViewModel());
 
 function getWeatherImageName(weather) {
     if (weather == "Clear") {
-        var hour = new Date().getHours;
-
+        var hour = new Date().getHours();
         if (hour >= 7 && hour <= 20) {
             return "/assets/img/Clear_AM.svg";
         } else {
