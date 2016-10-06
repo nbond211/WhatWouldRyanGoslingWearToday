@@ -1,24 +1,23 @@
 function AppViewModel() {
     var self = this;
+    this.dataLoaded = ko.observable(false);
     this.message = ko.observable("");
     this.imgSrc = ko.observable("");
     this.temperature = ko.observable(0);
     this.weatherIcon = ko.observable("");
-    this.dataLoaded = ko.observable(false);
+    this.zipCode = ko.observable("");
 
-    navigator.geolocation.getCurrentPosition(function(position) {
+    this.searchWeather = function() {
         $.post('/weather', {
-            lat: position.coords.latitude,
-            lon: position.coords.longitude
+            zip: this.zipCode,
         }, function(data) {
-            console.log(data);
             self.message(data.message);
             self.imgSrc(data.imgUrl);
             self.temperature(Math.round(data.temperature));
             self.weatherIcon(getWeatherImageName(data.weatherDescription));
             self.dataLoaded(true);
         });
-    });
+    };
 };
 
 ko.applyBindings(new AppViewModel());
