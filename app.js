@@ -8,7 +8,7 @@ var rp = require('request-promise');
 var async = require("async");
 var ryanOutfits = require(__dirname + '/public/assets/ryanOutfits.json');
 var apiKeys = require(__dirname + '/public/assets/apiKeys.json');
-var port = 5000;
+var port = 3000;
 
 app.use(express.static('public'));
 
