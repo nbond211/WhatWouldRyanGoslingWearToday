@@ -5,11 +5,11 @@ function AppViewModel() {
     this.imgSrc = ko.observable("");
     this.temperature = ko.observable(0);
     this.weatherIcon = ko.observable("");
-    this.zipCode = ko.observable("");
+    this.location = ko.observable("");
 
     this.searchWeather = function() {
         $.post('/weather', {
-            zip: this.zipCode,
+            location: this.location,
         }, function(data) {
             self.message(data.message);
             self.imgSrc(data.imgUrl);

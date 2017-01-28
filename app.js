@@ -25,9 +25,9 @@ app.get('/', function(req, res) {
 app.post('/weather', function(req, res) {
     async.waterfall([
             function(callback) {
-                var zip = req.body.zip;
+                var location = req.body.location;
 
-                httpreq.get('http://api.openweathermap.org/data/2.5/weather?q=' + zip + '=&APPID='+ apiKeys.weatherApiKey +'&units=imperial', function(err, resp) {
+                httpreq.get('http://api.openweathermap.org/data/2.5/weather?q=' + location + '=&APPID='+ apiKeys.weatherApiKey +'&units=imperial', function(err, resp) {
                     if (err) return console.log(err);
 
                     var data = JSON.parse(resp.body);
