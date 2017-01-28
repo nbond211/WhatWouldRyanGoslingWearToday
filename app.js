@@ -27,7 +27,7 @@ app.post('/weather', function(req, res) {
             function(callback) {
                 var zip = req.body.zip;
 
-                httpreq.get('http://api.openweathermap.org/data/2.5/weather?zip=' + zip + ',us=&APPID='+ apiKeys.weatherApiKey +'&units=imperial', function(err, resp) {
+                httpreq.get('http://api.openweathermap.org/data/2.5/weather?q=' + zip + '=&APPID='+ apiKeys.weatherApiKey +'&units=imperial', function(err, resp) {
                     if (err) return console.log(err);
 
                     var data = JSON.parse(resp.body);
@@ -54,16 +54,12 @@ app.post('/weather', function(req, res) {
                 }
 
                 httpreq.get(
-                    'https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=' + searchString + '&count=10&offset=0&mkt=en-us&safeSearch=Moderate', {
-                        headers: {
-                            'Ocp-Apim-Subscription-Key': apiKeys.bingApiKey
-                        }
-                    },
+                    'https://www.googleapis.com/customsearch/v1?q='+ searchString +'&key='+ apiKeys.googleApiKey +'&cx='+ apiKeys.googleApiId +'&searchType=image',
                     function(err, resp) {
                         if (err) return console.log(err);
 
-                        var data = JSON.parse(resp.body).value;
-                        var imgUrl = getRandomElementFrom(data).contentUrl;
+                        var data = JSON.parse(resp.body).items;
+                        var imgUrl = getRandomElementFrom(data).link;
 
                         var forcastOutfitData = new forcastWithOutfit(weatherData.outfit, imgUrl, weatherData.weather, weatherData.temperature, weatherData.city);
 
