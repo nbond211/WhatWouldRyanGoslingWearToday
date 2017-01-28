@@ -7,7 +7,9 @@
             "sweater", 
             "cardigan", 
             "denim jacket", 
-            "suit"
+            "suit", 
+            "zip-up jacket", 
+            "leather jacket"
         ], 
         "comfortable": [
             "denim jacket", 
@@ -15,7 +17,9 @@
             "jeans", 
             "henley", 
             "blazer", 
-            "short sleeve button down"
+            "short sleeve button down", 
+            "vest", 
+            "knit top"
         ], 
         "hot": [
             "blue shorts", 
