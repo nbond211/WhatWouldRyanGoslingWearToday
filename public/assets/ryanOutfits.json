@@ -1,31 +1,41 @@
 {
         "cold": [
-            "pea coat"
+            "peacoat",
+            "denim peacoat",
+            "flannel peacoat",
+            "shearling jacket"
         ], 
         "chilly": [
-            "flannel shirt", 
-            "sweater", 
+            "flannel shirt",
+            "sweater",
             "cardigan", 
-            "denim jacket", 
-            "suit", 
-            "zip-up jacket", 
+            "denim jacket",
+            "suit",
+            "zip-up jacket",
             "leather jacket"
         ], 
         "comfortable": [
-            "denim jacket", 
             "button down",
             "jeans", 
             "henley", 
             "blazer", 
             "short sleeve button down", 
             "vest", 
-            "knit top"
+            "knit top",
+            "chinos",
+            "indy 500 shirt",
+            "halloween shirt"
         ], 
         "hot": [
             "blue shorts", 
             "white t-shirt",
             "shirtless", 
             "tanktop", 
-            "v-neck"
+            "v-neck",
+            "board shorts",
+            "blue t-shirt",
+            "striped t-shirt",
+            "green t-shirt",
+            "gray t-shirt"
         ]
 }

@@ -7,7 +7,7 @@ var fs = require('fs');
 var rp = require('request-promise');
 var async = require("async");
 var ryanOutfits = require(__dirname + '/public/assets/ryanOutfits.json');
-var apiKeys = require(__dirname + '/public/assets/apiKeys.json');
+var apiKeys = require(__dirname + '/apiKeys.json');
 var port = 3000;
 
 app.use(express.static('public'));
@@ -85,7 +85,7 @@ function forcastWithOutfit(outfit, imgUrl, weatherDescription, temperature, city
 }
 
 function getTemperatureDescriptionFromTemp(temp) {
-    if (temp <= 30) {
+    if (temp <= 45) {
         return "cold";
     } else if (temp <= 60) {
         return "chilly";
