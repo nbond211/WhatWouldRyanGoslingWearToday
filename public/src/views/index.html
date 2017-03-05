@@ -8,52 +8,43 @@
     <meta name="author" content="">
     <title>What Would Ryan Gosling Wear Today</title>
     <link rel="shortcut icon" href="">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="/assets/css/style.css">
-
-    <!--[if IE]>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="input-group col-md-12">
-                    <input data-bind="value: location" type="text" class="form-control input-lg" placeholder="Location" />
-                    <span class="input-group-btn">
-                        <button data-bind="click: searchWeather" class="btn btn-info btn-lg" type="button">
-                            <i class="glyphicon glyphicon-search"></i>
-                        </button>
-                    </span>
-                </div>
+    <div data-bind="css: { fadeOutUp: dataLoaded }" class="container animated">
+        <div class="columns margin-bottom">
+            <div class="column flex-container center-vertical center-horizontal">
+                <h1 class="title is-1">What Would<br>Ryan Gosling<br>Wear Today?</h1>
+            </div>
+        </div>
+
+        <div class="columns">
+            <div class="column flex-container center-vertical center-horizontal">
+                <form class="location-form" data-bind="submit: searchWeather">
+                    <p class="control has-icon has-addons">
+                        <input data-bind="value: location" id="location-input" class="input is-large" type="text" placeholder="Location or Zip Code" required>
+                        <span class="icon">
+                            <i class="fa fa-map-marker"></i>
+                        </span>
+                        <button type="submit" class="button is-large is-primary">Search</button>
+                    </p>
+                </form>
+            </div>
         </div>
     </div>
 
-    <div data-bind="visible: dataLoaded" class="container">
-        <div class="row">
-            <div class="col-xs-2 col-xs-offset-3">
-                <h1 id="temperature"><span data-bind="text: temperature"></span><sup>°</sup></h1>
-            </div>
-            <div class="col-xs-2 col-xs-offset-2">
-                <img class="center-block" id="weather-icon" data-bind="attr: { src: weatherIcon }">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <img id="ryan-photo" class="img-thumbnail center-block" data-bind="attr: { src: imgSrc }">
-            </div>
-
-        </div>
-        <div class="row">
-            <h1 id="description" class="text-center" data-bind="text: message"></h1>
+    <div data-bind="visible: dataLoaded, css: { fadeInUp: dataLoaded }" class="container animated">
+        <div class="columns">
+            
         </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
     <script src="/assets/js/main.js"></script>
 </body>

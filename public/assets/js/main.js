@@ -9,7 +9,7 @@ function AppViewModel() {
 
     this.searchWeather = function() {
         $.post('/weather', {
-            location: this.location,
+            location: self.location,
         }, function(data) {
             self.message(data.message);
             self.imgSrc(data.imgUrl);
