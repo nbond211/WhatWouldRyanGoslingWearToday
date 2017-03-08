@@ -6,6 +6,7 @@ function AppViewModel() {
     this.temperature = ko.observable(0);
     this.weatherIcon = ko.observable("");
     this.location = ko.observable("");
+    this.cityName = ko.observable("");
 
     this.searchWeather = function() {
         $.post('/weather', {
@@ -14,7 +15,8 @@ function AppViewModel() {
             self.message(data.message);
             self.imgSrc(data.imgUrl);
             self.temperature(Math.round(data.temperature));
-            self.weatherIcon(getWeatherImageName(data.weatherDescription));
+            self.weatherIcon(getWeatherImageName(data.weatherIcon));
+            self.cityName(data.cityName);
             self.dataLoaded(true);
         });
     };
@@ -22,15 +24,17 @@ function AppViewModel() {
 
 ko.applyBindings(new AppViewModel());
 
-function getWeatherImageName(weather) {
-    if (weather == "Clear") {
+function getWeatherIconName(weather) {
+    var iconName;
+    if (weather == "clear") {
         var hour = new Date().getHours();
         if (hour >= 7 && hour <= 20) {
-            return "/assets/img/Clear_AM.svg";
+            iconName = 'day-sunny';
         } else {
-            return "/assets/img/Clear_PM.svg";
+            iconName = 'night-clear';
         }
     } else {
-        return "/assets/img/" + weather + ".svg";
+        iconName = weather;
     }
+    return 'wi wi-' + iconName;
 };

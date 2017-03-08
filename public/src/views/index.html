@@ -10,12 +10,11 @@
     <link rel="shortcut icon" href="">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.2/css/bulma.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
-    <div data-bind="css: { fadeOutUp: dataLoaded }" class="container animated">
+    <div data-bind="ifnot: dataLoaded" class="container">
         <div class="columns margin-bottom">
             <div class="column flex-container center-vertical center-horizontal">
                 <h1 class="title is-1">What Would<br>Ryan Gosling<br>Wear Today?</h1>
@@ -37,14 +36,28 @@
         </div>
     </div>
 
-    <div data-bind="visible: dataLoaded, css: { fadeInUp: dataLoaded }" class="container animated">
+    <div data-bind="if: dataLoaded" class="container">
         <div class="columns">
-            
+            <div class="column  flex-container center-horizontal center-vertical">
+                <h1 class="title is-1"><i class="fa fa-map-marker"></i> <span data-bind="text: cityName"></span></h1>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column flex-container center-horizontal center-vertical">
+                <h1 class="title is-1"><span data-bind="text: temperature"></span><sup>°</sup>F</h1>
+                <img id="weather-icon" data-bind="attr: { src: weatherIcon }">
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column flex-container center-horizontal center-vertical">
+                <figure class="image">
+                    <img data-bind="attr: { src: imgSrc }">
+                </figure>
+            </div>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
     <script src="/assets/js/main.js"></script>
 </body>
