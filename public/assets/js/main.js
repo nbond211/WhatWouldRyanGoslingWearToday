@@ -15,7 +15,7 @@ function AppViewModel() {
             self.message(data.message);
             self.imgSrc(data.imgUrl);
             self.temperature(Math.round(data.temperature));
-            self.weatherIcon(getWeatherImageName(data.weatherIcon));
+            self.weatherIcon(getWeatherIconName(data.weatherIcon));
             self.cityName(data.cityName);
             self.dataLoaded(true);
         });

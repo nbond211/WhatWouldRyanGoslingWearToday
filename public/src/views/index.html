@@ -10,6 +10,8 @@
     <link rel="shortcut icon" href="">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.2/css/bulma.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/weather-icons-wind.min.css">
+    <link rel="stylesheet" href="/assets/css/weather-icons.min.css">
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
@@ -44,8 +46,7 @@
         </div>
         <div class="columns">
             <div class="column flex-container center-horizontal center-vertical">
-                <h1 class="title is-1"><span data-bind="text: temperature"></span><sup>°</sup>F</h1>
-                <img id="weather-icon" data-bind="attr: { src: weatherIcon }">
+                <h1 class="title is-1"><span data-bind="text: temperature"></span><sup>°</sup> <i data-bind="css: weatherIcon"></i></h1>
             </div>
         </div>
         <div class="columns">
