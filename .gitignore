@@ -3,3 +3,5 @@ node_modules
 typings
 jsconfig.json
 public/src/views/index.1.html
+.vscode/settings.json
+.gitignore
