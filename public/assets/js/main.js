@@ -8,12 +8,16 @@ function AppViewModel() {
     this.location = ko.observable("");
     this.cityName = ko.observable("");
     this.weather = ko.observable("");
+    this.error = ko.observable(false);
 
     this.searchWeather = function() {
         $.post('/weather', {
             location: self.location,
         }, function(data) {
-            console.log(data);
+            if (data === 'error') {
+                self.error(true);
+            }
+            else {
             self.message(data.message);
             self.imgSrc(data.imgUrl);
             self.temperature(Math.round(data.temperature));
@@ -21,6 +25,7 @@ function AppViewModel() {
             self.cityName(data.cityName);
             self.weather(data.weatherDescription);
             self.dataLoaded(true);
+            }
         });
     };
 };

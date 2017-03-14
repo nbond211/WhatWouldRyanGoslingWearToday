@@ -28,9 +28,11 @@ app.post('/weather', function (req, res) {
                 var location = req.body.location;
 
                 httpreq.get('http://api.openweathermap.org/data/2.5/weather?q=' + location + '=&APPID=' + apiKeys.weatherApiKey + '&units=imperial', function (err, resp) {
-                    if (err) return console.log(err);
-
                     var data = JSON.parse(resp.body);
+                    if (data.cod == 404) {
+                        res.send('error');
+                        return;
+                    }
                     var temperature = data.main.temp;
                     var weather = data.weather[0].main;
                     var outfit = chooseOutfit(temperature, weather);

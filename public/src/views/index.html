@@ -36,6 +36,9 @@
                 </form>
             </div>
         </div>
+        <div data-bind="if: error" class="column flex-container center-vertical center-horizontal">
+            <p>Location not found. Try another location.</p>
+        </div>
     </div>
 
     <div data-bind="if: dataLoaded, css: { 'full-height': dataLoaded }" class="container">
