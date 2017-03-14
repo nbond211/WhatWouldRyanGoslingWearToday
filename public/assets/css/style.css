@@ -11,15 +11,12 @@ body {
     background-attachment: fixed;
     border: 1px solid transparent;
     padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 .title {
     text-align: center;
     color: #fff;
-}
-
-.title.is-1 {
-    font-size: 5vw;
 }
 
 .control.has-addons {
@@ -46,79 +43,46 @@ body {
     justify-content: center;
 }
 
-.columns.margin-bottom {
-    margin-bottom: 10%;
+.full-height {
+    height: 100%;
+}
+
+#main-container {
+    justify-content: space-around;
+}
+
+#text-container {
+    flex-direction: column;
+    margin-right: 25px;
+}
+
+#image-container {
+    margin-left: 25px;
+}
+
+.ryan-image {
+    max-height: 800px;
+    min-height: 500px;
+}
+
+.outfit-text {
+    margin-top: 50px;
+    margin-bottom: 100px;
 }
 
 @media screen and (max-width:2000px) {
-    #weather-icon {
-        height: 10vw;
-    }
-    #ryan-photo {
-        height: 25vw;
-    }
-    #temperature {
-        font-size: 8vw;
-    }
-    #description {
-        font-size: 3vw;
-    }
-    .row {
-        padding-top: 3vh;
-    }
+
 }
 
 
 @media screen and (min-width:1000px) and (max-width:1499px) {
-    #weather-icon {
-        height: 15vw;
-    }
-    #ryan-photo {
-        height: 34vw;
-    }
-    #temperature {
-        font-size: 11vw;
-    }
-    #description {
-        font-size: 3vw;
-    }
-    .row {
-        padding-top: 3vh;
-    }
+
 }
 
 @media screen and (min-width:600px) and (max-width:999px) {
-    #weather-icon {
-        height: 25vw;
-    }
-    #ryan-photo {
-        height: 50vw;
-    }
-    #temperature {
-        font-size: 18vw;
-    }
-    #description {
-        font-size: 5vw;
-    }
-    .row {
-        padding-top: 3vh;
-    }
+
 }
 
 @media screen and (max-width:599px) {
-    #weather-icon {
-        height: 25vw;
-    }
-    #ryan-photo {
-        height: 65vw;
-    }
-    #temperature {
-        font-size: 18vw;
-    }
-    #description {
-        font-size: 6vw;
-    }
-    .row {
-        padding-top: 3vh;
-    }
+
 }

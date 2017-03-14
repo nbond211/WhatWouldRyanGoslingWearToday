@@ -8,7 +8,7 @@ var rp = require('request-promise');
 var async = require("async");
 var ryanOutfits = require(__dirname + '/public/assets/ryanOutfits.json');
 var apiKeys = require(__dirname + '/apiKeys.json');
-var port = 3000;
+var port = 4000;
 
 app.use(express.static('public'));
 
@@ -123,7 +123,7 @@ function writeMessage(outfit, weather, city) {
     } else if (outfit == "shirtless") {
         return "It sure is hot out today in " + city + ", if you know what I mean."
     } else {
-        var message = "The weather outside in " + city + " is " + weather + ". Ryan Gosling would wear his " + outfit + ".";
+        var message = "Ryan Gosling would wear his " + outfit + ".";
         return message;
     }
 }

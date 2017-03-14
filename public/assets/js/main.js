@@ -7,16 +7,19 @@ function AppViewModel() {
     this.weatherIcon = ko.observable("");
     this.location = ko.observable("");
     this.cityName = ko.observable("");
+    this.weather = ko.observable("");
 
     this.searchWeather = function() {
         $.post('/weather', {
             location: self.location,
         }, function(data) {
+            console.log(data);
             self.message(data.message);
             self.imgSrc(data.imgUrl);
             self.temperature(Math.round(data.temperature));
             self.weatherIcon(getWeatherIconName(data.weatherIcon));
             self.cityName(data.cityName);
+            self.weather(data.weatherDescription);
             self.dataLoaded(true);
         });
     };

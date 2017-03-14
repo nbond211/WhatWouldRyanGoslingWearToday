@@ -27,7 +27,7 @@
             <div class="column flex-container center-vertical center-horizontal">
                 <form class="location-form" data-bind="submit: searchWeather">
                     <p class="control has-icon has-addons">
-                        <input data-bind="value: location" id="location-input" class="input is-large" type="text" placeholder="Location or Zip Code" required>
+                        <input data-bind="value: location" id="location-input" class="input is-large" type="text" placeholder="Location" required>
                         <span class="icon">
                             <i class="fa fa-map-marker"></i>
                         </span>
@@ -38,27 +38,32 @@
         </div>
     </div>
 
-    <div data-bind="if: dataLoaded" class="container">
-        <div class="columns">
-            <div class="column  flex-container center-horizontal center-vertical">
-                <h1 class="title is-1"><i class="fa fa-map-marker"></i> <span data-bind="text: cityName"></span></h1>
+    <div data-bind="if: dataLoaded, css: { 'full-height': dataLoaded }" class="container">
+        <div id="main-container" class="flex-container full-height">
+            <div id="text-container" class="flex-container center-horizontal center-vertical">
+                <div class="flex-container center-horizontal center-vertical weather-text">
+                    <h1 class="title is-1"><i class="fa fa-map-marker"></i> <span data-bind="text: cityName"></span></h1>
+                </div>
+                <div class="flex-container center-horizontal center-vertical weather-text">
+                    <h1 class="title is-1"><span data-bind="text: temperature"></span><sup>°</sup> <i data-bind="css: weatherIcon"></i> <span data-bind="text: weather"></h1>
+                </div>
+                <div class="flex-container center-horizontal center-vertical outfit-text">
+                    <h2 data-bind="text: message" class="title is-2"></h2>
+                </div>
+                <div class="flex-container center-horizontal center-vertical button-container">
+                    <a href="/" class="button is-medium is-primary">Change Location</a>
+                </div>
             </div>
-        </div>
-        <div class="columns">
-            <div class="column flex-container center-horizontal center-vertical">
-                <h1 class="title is-1"><span data-bind="text: temperature"></span><sup>°</sup> <i data-bind="css: weatherIcon"></i></h1>
-            </div>
-        </div>
-        <div class="columns">
-            <div class="column flex-container center-horizontal center-vertical">
-                <figure class="image">
-                    <img data-bind="attr: { src: imgSrc }">
-                </figure>
+            <div id="image-container" class="flex-container center-vertical center-horizontal">
+                    <div class="flex-container center-horizontal center-vertical">
+                        <img class="ryan-image" data-bind="attr: { src: imgSrc }">
+                </div>
             </div>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
     <script src="/assets/js/main.js"></script>
 </body>
