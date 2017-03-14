@@ -15,10 +15,10 @@
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
-<body>
+<body data-bind="css: { 'data-body': dataLoaded }">
     <div data-bind="ifnot: dataLoaded" class="container">
-        <div class="columns margin-bottom">
-            <div class="column flex-container center-vertical center-horizontal">
+        <div class="columns">
+            <div class="column flex-container center-vertical center-horizontal app-title">
                 <h1 class="title is-1">What Would<br>Ryan Gosling<br>Wear Today?</h1>
             </div>
         </div>
@@ -50,7 +50,7 @@
                 <div class="flex-container center-horizontal center-vertical outfit-text">
                     <h2 data-bind="text: message" class="title is-2"></h2>
                 </div>
-                <div class="flex-container center-horizontal center-vertical button-container">
+                <div class="flex-container center-horizontal center-vertical button-container-desktop">
                     <a href="/" class="button is-medium is-primary">Change Location</a>
                 </div>
             </div>
@@ -58,6 +58,9 @@
                     <div class="flex-container center-horizontal center-vertical">
                         <img class="ryan-image" data-bind="attr: { src: imgSrc }">
                 </div>
+            </div>
+            <div class="flex-container center-horizontal center-vertical button-container-mobile">
+                    <a href="/" class="button is-medium is-primary">Change Location</a>
             </div>
         </div>
     </div>
