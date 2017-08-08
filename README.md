@@ -5,6 +5,8 @@
 ## Summary
 What Would Ryan Gosling Wear Today is a weather application that informs the user not only of the current weather conditions in their location, but also given those weather conditions what outfit Ryan Gosling would wear accompanied by a photo of Mr. Gosling wearing that outfit.
 
+## <a target="_blank" href="http://www.whatwouldryangoslingwear.today/">Deployed App</a>
+
 ## Installation
 1. run `npm install`
 
